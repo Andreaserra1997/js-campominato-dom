@@ -29,9 +29,10 @@ function createGrid(numCells, eleContainer) {
         cell.addEventListener('click', function () {
             console.log(cell);
             cell.classList.toggle('clicked');
-            points++;
-            if (i == randomArray)) {
+            if () {
                 this.classList.toggle("clicked-bomb")
+            } else {
+                points++;
             }
         });
     }

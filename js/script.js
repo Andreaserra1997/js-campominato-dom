@@ -1,13 +1,9 @@
-/*L'utente clicca su un bottone che genererà una griglia di gioco quadrata.
-Ogni cella ha un numero progressivo, da 1 a 100.
-Ci saranno quindi 10 caselle per ognuna delle 10 righe.
-Quando l'utente clicca su ogni cella, la cella cliccata si colora di azzurro ed emetto un messaggio in console con il numero della cella cliccata.*/
-
 const eleGrid = document.querySelector('.grid');
 const eleCell = document.querySelector('.cell');
 const btnPlay = document.querySelector('#play');
 const selectDifficulty = document.querySelector('#difficulty');
 const eleHelp = document.querySelector('.help');
+let points = 0;
 
 btnPlay.addEventListener('click',
     function () {
@@ -16,8 +12,12 @@ btnPlay.addEventListener('click',
         const nCells = parseInt(selectDifficulty.value);
         eleGrid.style.setProperty('--sideSquare', Math.sqrt(nCells));
         createGrid(nCells, eleGrid);
+        const arrMines = getRandomArray (1, nCells, 16);
+        console.log(arrMines);
     }
 );
+
+// funzione per creare le celle
 
 function createGrid(numCells, eleContainer) {
     eleContainer.innerHTML = '';
@@ -29,6 +29,23 @@ function createGrid(numCells, eleContainer) {
         cell.addEventListener('click', function () {
             console.log(cell);
             cell.classList.toggle('clicked');
+            points++;
+            if (i == randomArray)) {
+                this.classList.toggle("clicked-bomb")
+            }
         });
     }
+};
+
+// funzione per creare il numero random delle bombe
+
+function getRandomArray(min, max, arrNum) {
+    let randomArray = [];
+    while (randomArray.length < arrNum) {
+      let random = Math.floor(Math.random() * (max - min + 1)) + min;
+      if (!randomArray.includes(random)) {
+        randomArray.push(random);
+      }
+    }
+    return randomArray;
 };

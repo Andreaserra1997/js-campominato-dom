@@ -61,6 +61,10 @@ main {
     background-color: aqua;
 }
 
+.clicked-bomb {
+    background-color: red;
+}
+
 footer {
     display: flex;
     align-items: center;

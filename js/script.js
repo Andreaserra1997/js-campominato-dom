@@ -3,6 +3,7 @@ const eleCell = document.querySelector('.cell');
 const btnPlay = document.querySelector('#play');
 const selectDifficulty = document.querySelector('#difficulty');
 const eleHelp = document.querySelector('.help');
+let arrMines = [];
 let points = 0;
 
 btnPlay.addEventListener('click',
@@ -12,7 +13,7 @@ btnPlay.addEventListener('click',
         const nCells = parseInt(selectDifficulty.value);
         eleGrid.style.setProperty('--sideSquare', Math.sqrt(nCells));
         createGrid(nCells, eleGrid);
-        const arrMines = getRandomArray (1, nCells, 16);
+        arrMines = getRandomArray (1, nCells, 16);
         console.log(arrMines);
     }
 );
@@ -29,11 +30,13 @@ function createGrid(numCells, eleContainer) {
         cell.addEventListener('click', function () {
             console.log(cell);
             cell.classList.toggle('clicked');
-            if () {
+            if (arrMines.includes(i)) {
+                console.log('bomba trovata')
                 this.classList.toggle("clicked-bomb")
             } else {
                 points++;
-            }
+            };
+            document.querySelector(".score").innerHTML = points;
         });
     }
 };

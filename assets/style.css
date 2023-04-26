@@ -58,11 +58,11 @@ main {
 }
 
 .clicked {
-    background-color: aqua;
+    background-color: #16166D;
 }
 
 .clicked-bomb {
-    background-color: red;
+    background-color: #850606;
 }
 
 footer {
